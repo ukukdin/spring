@@ -1,14 +1,17 @@
 package com.example.restapi.exception;
 
 import com.example.restapi.model.Api;
+import com.example.restapi.model.UserRegisterRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.IndexedReadOnlyStringMap;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.net.BindException;
 import java.util.NoSuchElementException;
 
 @Slf4j
@@ -59,4 +62,5 @@ public class RestApiExceptionHandler {
                 .body(response)
                 ;
     }
+
 }
