@@ -2,11 +2,13 @@ package com.example.restapi.controller;
 
 
 import com.example.restapi.model.BookQueryParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
+@Slf4j
 @RestController
 @RequestMapping("/api")
 public class RestApiController {
@@ -81,5 +83,18 @@ public class RestApiController {
             res.append(entry.getKey()).append(" 값은? : ").append(entry.getValue()).append("\n");
         }
         return res.toString();
+    }
+    //path= 는 delete , del 등 여러개의 사이트를 넣을수 있다. path={"","",""}
+    @DeleteMapping(path = {"/user/{userName}/delete","/user/{userName}/del"})
+    public void delete(@PathVariable String userName){
+        log.info("user-name: {}",userName);
+    }
+    @GetMapping(path = "")
+    public void hello2(){
+        var list  = List.of("hello");
+
+        var element = list.get(1);
+        log.info("element : {}", element);
+        throw new RuntimeException("run time exception call");
     }
 }

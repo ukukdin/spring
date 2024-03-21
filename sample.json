@@ -1,0 +1,35 @@
+{
+  "key": "value",
+  "array":[
+    "1",
+    "2",
+    "3"],
+  "IntegerArray": [
+    10,
+    20,
+    30
+  ],
+  "object_array": [
+    {
+      "name" : "matthew"
+    },
+    {
+      "name" :  "lee"
+    },
+    {
+      "name" :  "kimjungun"
+    }
+  ]
+}
+
+1. snake case
+_ 바로 구분한다 예: user_name
+                user_age
+        점유율은 스네이크가 조금 더 많이 사용된다.
+
+
+2.camel case
+소문자 대문자로 구분
+userName
+userAge
+구분짓는 자리에 대문자가 들어간다.
