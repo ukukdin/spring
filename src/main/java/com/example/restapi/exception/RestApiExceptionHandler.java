@@ -48,6 +48,7 @@ public class RestApiExceptionHandler {
         log.error("IndexOutOfBoundsException",e);
         return ResponseEntity.status(200).build();
     }
+
     @ExceptionHandler(value = { NoSuchElementException.class})
     public ResponseEntity<Api> noSuchElement( NoSuchElementException e){
         log.error("",e);
@@ -61,6 +62,13 @@ public class RestApiExceptionHandler {
                 .status(HttpStatus.NOT_FOUND)
                 .body(response)
                 ;
+    }
+
+    @ExceptionHandler(value = {MethodArgumentNotValidException.class})
+    public ResponseEntity<UserRegisterRequest> methodArg( MethodArgumentNotValidException e){
+        log.error("MethodArgumentNotValidException",e);
+
+        return ResponseEntity.status(400).build();
     }
 
 }
