@@ -90,3 +90,6 @@ public @interface Order {
 해당 api 객체를 검증하려면 해당 부분에 @Valid를 해주면 같이 진행된다.
 
 api<? extends Object> 를 하면 자바에서 모든 클래스는 Object를 상속받기때문에 모든 타입을 제네릭 오브젝트로 받을수 있다.
+
+@Retention(RetentionPolicy.RUNTIME)
+retention 은 언제 실행 시킬지에 대한 어노테이션이빈다. retentionpolicy.runtime을 쓰면 실행 시에만 한다.

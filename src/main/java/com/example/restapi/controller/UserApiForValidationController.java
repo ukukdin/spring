@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,31 +23,9 @@ import java.util.stream.Collectors;
 public class UserApiForValidationController {
     //valid 어노테이션을 달아주면 요청이 들어올때 자동으로 해당 클래스에 대해서 어노테이션을 기반으로 검증을 해주게된다.
     @PostMapping("")
-    public Api<? extends Object> register(@Valid @RequestBody Api<UserRegisterRequest> userRegisterRequest, BindingResult bindingResult){
+    public Api<UserRegisterRequest> register(@Valid @RequestBody Api<UserRegisterRequest> userRegisterRequest){
 
         log.error("init : {}", userRegisterRequest);
-
-        if(bindingResult.hasErrors()){
-            var errorMessageList = bindingResult.getFieldErrors().stream()
-                    .map( it -> {
-                        var format = "%s :{ %s} 은 %s";
-                        var message = String.format(format, it.getField(),it.getRejectedValue(), it.getDefaultMessage());
-                        return message;
-                    }).collect(Collectors.toList());
-
-            var error = Api.Error.builder()
-                    .errorMessage(errorMessageList)
-                    .build();
-
-            var errorResponse = Api
-                    .builder()
-                    .resultCode(String.valueOf(HttpStatus.BAD_REQUEST.value()))
-                    .resultMessage(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                    .error(error)
-                    .build();
-
-            return errorResponse;
-        }
 
         var body = userRegisterRequest.getData();
 

@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 
 @Slf4j
 @RestControllerAdvice(basePackages = "com.example.restapi.controller")
-@Order(1)
+@Order(2)
 public class RestApiExceptionHandler {
 
     @ExceptionHandler(value = {Exception.class})
