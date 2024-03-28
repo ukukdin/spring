@@ -46,6 +46,9 @@ public class UserRegisterRequest {
     @FutureOrPresent
     private LocalDateTime registerAt;
 
+    @YearMonth(pattern = "yyyy-MM")
+    private String birthDayYearMonth;
+
     @AssertTrue(message = "name 또는 nickName 은 반드시 1개가 존재 해야합니다.")
     public boolean isNameCheck(){
 

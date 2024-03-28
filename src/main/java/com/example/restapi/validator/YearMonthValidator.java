@@ -23,10 +23,10 @@ public class YearMonthValidator implements ConstraintValidator<YearMonth, String
     public boolean isValid(String value, ConstraintValidatorContext context) {
         boolean result = Pattern.matches(String.valueOf(value), pattern);
 
+        var reValue = value+"01";
+        var rePattern = pattern +"dd";
         try{
-            LocalDate date = LocalDate.parse(value, DateTimeFormatter.ofPattern(value));
-
-
+            LocalDate date = LocalDate.parse(reValue, DateTimeFormatter.ofPattern(rePattern));
 
             return true;
         }catch (Exception e){
