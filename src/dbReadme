@@ -10,3 +10,6 @@ SimpleDataRepository<T extends Entity,ID>  에서 etxends Entity는 Entity에 �
 제한을 두었다.
 
 반면 Id 는 Long타입으로만 상속받으라고 와일드카드로 지정해줄수있따.
+annotation @Service 는 서비스로직이 들어가는 빈의 영역이다 즉 데이터 클래스의 영역이다 라고할수있다.
+HttpRequest가 들어오는 리스폰스를 처리하는 영역을 @컨트롤러이다.
+@RequiredArgsConstructor 생성자 메소드로 채워달라는 어노테이션이다.
