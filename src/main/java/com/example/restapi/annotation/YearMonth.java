@@ -31,4 +31,6 @@ public @interface YearMonth {
     String pattern() default "yyyyMMdd";
 
 
+    //년도 어노테이션은 다시한번더 진행을 해봐야할거같습니다.
+
 }
