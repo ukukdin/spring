@@ -1,10 +1,10 @@
 package database.book.db.repository;
 
 import database.book.db.entity.BookEntity;
-import database.db.SimpleDataRepository;
-import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Service
-public class BookRepository extends SimpleDataRepository<BookEntity, Long> {
+
+
+public interface BookRepository extends JpaRepository<BookEntity, Long> {
 
 }

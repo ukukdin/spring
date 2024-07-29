@@ -4,19 +4,17 @@ import database.entity.Entity;
 import database.user.model.UserEntity;
 import database.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/db/user")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class UserApiController {
 
     private final UserService userService;
-    @PutMapping("")
+    @PutMapping("/user")
     public UserEntity create(@RequestBody UserEntity userEntity){
 
         return userService.save(userEntity);
@@ -30,7 +28,8 @@ public class UserApiController {
     //delete
     @DeleteMapping("/id/{id}")
     public void delete(@PathVariable Long id){
-         userService.delete(id);
+
+//        userService.delete(id);
     }
     @GetMapping("/id/{id}")
     public UserEntity findOne(@PathVariable Long id){
