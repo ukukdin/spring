@@ -1,1 +1,4 @@
 rootProject.name = 'rest-api'
+include 'src:main:session'
+findProject(':src:main:session')?.name = 'session'
+
