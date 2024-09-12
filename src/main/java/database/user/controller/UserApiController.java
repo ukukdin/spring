@@ -25,7 +25,7 @@ public class UserApiController {
         return userService.findAll();
     }
 
-    //delete
+    //delete dma.....
     @DeleteMapping("/id/{id}")
     public void delete(@PathVariable Long id){
 
