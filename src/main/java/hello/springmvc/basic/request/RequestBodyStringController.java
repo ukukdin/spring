@@ -9,8 +9,12 @@ import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -37,11 +41,18 @@ public class RequestBodyStringController {
     }
 
     @PostMapping("/request-body-string-v3")
-    public HttpEntity<String> requestBodyStringV3(HttpEntity<String> httpEntity)
+    public HttpEntity<String> requestBodyStringV3(RequestEntity<String> httpEntity)
         throws IOException {
-        String body = httpEntity.getBody();
+        String messageBody = httpEntity.getBody();
 
-        log.info("messageBody={}", body);
-        return new HttpEntity<>("ok");
+        log.info("messageBody={}", messageBody);
+        return new ResponseEntity<String>("ok",HttpStatus.CREATED);
+    }
+
+    @PostMapping("/request-body-string-v4")
+    public String requestBodyStringV4(@RequestBody String messageBody)
+        throws IOException {
+        log.info("messageBody={}", messageBody);
+        return"ok";
     }
 }
