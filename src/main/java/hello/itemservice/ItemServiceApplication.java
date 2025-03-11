@@ -17,4 +17,6 @@ public class ItemServiceApplication {
 	public WebServerFactoryCustomizer<ConfigurableWebServerFactory> serverPortCustomizer() {
 		return factory -> factory.setPort(8081); // 원하는 포트 번호 설정
 	}
+
+
 }
