@@ -1,6 +1,7 @@
 package hello.itemservice.domain.item;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import java.util.List;
 
@@ -8,7 +9,10 @@ import java.util.List;
 public class Item {
 
     private Long id;
+
     private String itemName;
+
+
     private Integer price;
     private Integer quantity;
 
