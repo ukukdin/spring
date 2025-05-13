@@ -1,0 +1,15 @@
+데이터베이스 저장소를 만들었다.
+저장소에 들어가는 공간을 만들어야하는데 어떤식으로 만들어야할까??
+simpledatarepository class를 하나 만들어서 해당 클래스는 추상 클래스로 만들어서 상속받는 다른 클래스들이 구현을 해도 되고
+안해도 되게끔 만들어주로
+
+T save 로 만들엇
+
+제네릭 타입이라서 셋아이디로 타입을 줄수없다. Java에서 와일드 카드라는것으로 데이터를 제한을 둘수있다.
+SimpleDataRepository<T extends Entity,ID>  에서 etxends Entity는 Entity에 있는것만 상속받을수있다고
+제한을 두었다.
+
+반면 Id 는 Long타입으로만 상속받으라고 와일드카드로 지정해줄수있따.
+annotation @Service 는 서비스로직이 들어가는 빈의 영역이다 즉 데이터 클래스의 영역이다 라고할수있다.
+HttpRequest가 들어오는 리스폰스를 처리하는 영역을 @컨트롤러이다.
+@RequiredArgsConstructor 생성자 메소드로 채워달라는 어노테이션이다.
